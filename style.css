@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 nav,
@@ -9,7 +10,7 @@ nav,
 }
 
 nav {
-    background-color:darkgoldenrod;
+    background-color: darkgoldenrod;
     color: white;
     height: 50px;
     justify-content: space-between;
@@ -21,14 +22,23 @@ nav {
 .card {
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
     margin-top: 50px;
     border-style: solid;
+    border-radius: 10px;
     height: 50vh;
-    width: 50vw;
-    margin-left: 375px;
+    width: 75%;
 }
 
 
 #answer-button {
     flex-direction: row;
 }
+
+.button {
+    background-color: blueviolet;
+    height: 50px;
+    width: 100px;
+    border-radius: 4px;
+}
+
