@@ -1,9 +1,11 @@
 var startButton = document.getElementById("start-btn");
-
+var questionsCard = document.getElementById("questions");
 var questionElement = document.getElementById("question");
 var answerButtonElement = document.getElementById("answer-button");
+var startPage = document.getElementById("start-page");
+var instructionsElement = document.getElementById("instructions");
 
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", startQuiz);
 
 var questions = [
     {
@@ -51,9 +53,24 @@ var questions = [
             {text: "all of the above", correct: true}
         ]
     }
-]
+];
 
-function startGame() {
+
+
+function startQuiz() {
     console.log("Started");
+    randomQuestions = questions.sort(() => Math.random() - .5);
+    startPage.classList.add("hidden");
+    instructionsElement.classList.add("hidden");
+    startButton.classList.add("hidden");
+    questionsCard.classList.remove("hidden");
+    showQuestion();
 };
 
+function showQuestion(question) {
+    questionElement.innerText = question.question;
+};
+
+function selectedAnswer() {
+
+};
