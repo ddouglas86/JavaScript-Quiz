@@ -23,6 +23,8 @@ THEN I can save my initials and score
 
 ## How to view completed code
 ---
+>*Note that this code is not fully completed and will be updated* 
+---
 
 * Open with VSCode
 * Click [here](https://ddouglas86.github.io/JavaScript-Quiz/) to view the live webpage
