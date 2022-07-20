@@ -37,15 +37,18 @@ nav {
     text-align: center;
 }
 
-#answer-button {
-    flex-direction: row;
-}
 
 .button {
     background-color: blueviolet;
     height: 50px;
     width: 100px;
     border-radius: 4px;
+    align-items: center;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: darkorchid;
 }
 
 .hidden {

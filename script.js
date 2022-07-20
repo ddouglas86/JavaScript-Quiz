@@ -4,6 +4,11 @@ var questionElement = document.getElementById("question");
 var answerButtonElement = document.getElementById("answer-button");
 var startPage = document.getElementById("start-page");
 var instructionsElement = document.getElementById("instructions");
+var button = document.getElementById("button");
+var randomQuestions;
+var questionIndex;
+var timeElement = document.getElementById("timer");
+var secondsLeft = 30;
 
 startButton.addEventListener("click", startQuiz);
 
@@ -60,17 +65,48 @@ var questions = [
 function startQuiz() {
     console.log("Started");
     randomQuestions = questions.sort(() => Math.random() - .5);
+    questionIndex = 0;
     startPage.classList.add("hidden");
     instructionsElement.classList.add("hidden");
     startButton.classList.add("hidden");
     questionsCard.classList.remove("hidden");
+    showQuestion(randomQuestions[questionIndex]);
     showQuestion();
+    startTimer();
 };
 
 function showQuestion(question) {
     questionElement.innerText = question.question;
+    question.answers.forEach(answer => {
+        var button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("button");
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        } 
+        button.addEventListener("click", selectedAnswer); 
+        answerButtonElement.appendChild(button);
+    });
 };
 
 function selectedAnswer() {
 
+    questionIndex++;
+    showQuestion();
+};
+
+function startTimer() {
+    var timeInterval = setInterval(function() {
+        secondsLeft--;
+        timeElement.innerText = "Timer: " + secondsLeft;
+        if(secondsLeft === 0) {
+            endQuiz();
+            clearInterval(timeInterval);
+
+        }
+    }, 1000);
+};
+
+function endQuiz() {
+    
 };
